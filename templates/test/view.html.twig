@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'test.view_title'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'test.view_action'|trans }}</h1>
+    {% if item is defined and item|length %}
+        <dl>
+            <dt>{{ 'label.title'|trans }}</dt>
+            <dd>{{ item.title }}</dd>
+            <dt>{{ 'label.tags'|trans }}</dt>
+            <dd>{{ item.tags|join(', ') }}</dd>
+        </dl>
+    {% else %}
+        <p>
+            {{ 'app.view_empty'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'test.title'|trans }}
+{% endblock %}
+{% block body %}
+    <h1>{{ 'test.list'|trans }}</h1>
+    {% if data is defined and data|length %}
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>{{ 'label.id'|trans }}</th>
+            <th>{{ 'label.title'|trans }}</th>
+            <th>{{ 'label.tags'|trans }}</th>
+            <th scope="col">{{ 'label.actions'|trans }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in data %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.title }}</td>
+                <td>{{ item.tags|join(', ') }}</td>
+                <td>&nbsp;</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+        <p>
+            {{ 'app.empty'|trans }}
+        </p>
+    {% endif %}
+
+{% endblock  %}
